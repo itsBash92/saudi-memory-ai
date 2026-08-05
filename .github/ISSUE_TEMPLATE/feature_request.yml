@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest an improvement that supports the preservation of Saudi memory
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or need
+      description: Who is the user, and what is difficult for them today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed outcome
+      description: Describe the desired user outcome, not only an implementation.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Product area
+      options:
+        - Discovery and map
+        - Camera and recognition
+        - Memories and content
+        - Trust and moderation
+        - Points and rewards
+        - Accessibility and language
+        - Technical platform
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Examples or evidence
+      description: Add context or use cases without sensitive data.

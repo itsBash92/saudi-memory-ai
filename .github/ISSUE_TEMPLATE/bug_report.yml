@@ -1,0 +1,48 @@
+name: Bug report
+description: Help us reproduce a problem in Saudi Memory AI
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for helping improve Saudi Memory AI. Do not attach sensitive personal data or unauthorized media.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem summary
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Open...
+        2. Select...
+        3. Observe...
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - Web — mobile
+        - Web — desktop
+        - iOS
+        - Android
+        - API / Backend
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser or application version
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I confirmed this report contains no API keys, private personal data, or unauthorized media.
+          required: true

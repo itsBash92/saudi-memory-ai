@@ -1,0 +1,19 @@
+{
+  "name": "Saudi Memory AI",
+  "short_name": "Saudi Memory",
+  "description": "Preserve and explore the memories of Saudi places.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f4ec",
+  "theme_color": "#073b2d",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/brand-logo.png",
+      "sizes": "768x768",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
