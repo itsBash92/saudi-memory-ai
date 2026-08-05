@@ -6,7 +6,7 @@
 - [x] Responsive English web interface.
 - [x] Demo-ready recognition simulation.
 - [x] Product, architecture, and data documentation.
-- [x] Initial Supabase schema and continuous integration.
+- [x] Security-first Supabase schema, repository tests, and continuous integration.
 
 ## Phase 1 — Usable MVP
 
@@ -15,6 +15,7 @@
 - [ ] Place pages, search, and map.
 - [ ] Safe uploads with EXIF removal.
 - [ ] Moderation workspace and content states.
+- [ ] Database integration tests against a local Supabase stack.
 
 ## Phase 2 — Artificial intelligence
 

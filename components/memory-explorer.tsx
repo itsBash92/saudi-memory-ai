@@ -7,11 +7,15 @@ const cities = ["All", ...Array.from(new Set(places.map((place) => place.city)))
 
 export function MemoryExplorer() {
   const [city, setCity] = useState("All");
+  const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
 
   const visiblePlaces = useMemo(
     () => places.filter((place) => city === "All" || place.city === city),
     [city],
   );
+
+  const selectedPlace = places.find((place) => place.id === selectedPlaceId);
+  const selectedMemory = memories.find((memory) => memory.placeId === selectedPlaceId);
 
   return (
     <div>
@@ -21,7 +25,10 @@ export function MemoryExplorer() {
             type="button"
             key={item}
             className={city === item ? "filter-button is-active" : "filter-button"}
-            onClick={() => setCity(item)}
+            onClick={() => {
+              setCity(item);
+              setSelectedPlaceId(null);
+            }}
             aria-pressed={city === item}
           >
             {item}
@@ -41,9 +48,10 @@ export function MemoryExplorer() {
                 </div>
               </div>
               <div className="place-body">
+                <span className="demo-data-badge">Illustrative demo data</span>
                 <div className="place-location">
                   <span>{place.city}</span>
-                  <span>{Math.round(place.confidence * 100)}% confidence</span>
+                  <span>{Math.round(place.confidence * 100)}% demo score</span>
                 </div>
                 <h3>{place.name}</h3>
                 <p>{place.summary}</p>
@@ -57,14 +65,49 @@ export function MemoryExplorer() {
                   </blockquote>
                 )}
                 <div className="card-footer">
-                  <span>{place.memoriesCount} preserved memories</span>
-                  <button type="button" aria-label={`Open ${place.name}`}>Open memory →</button>
+                  <span>{place.memoriesCount} illustrative memories</span>
+                  <button
+                    type="button"
+                    aria-label={`Open the illustrative memory for ${place.name}`}
+                    aria-expanded={selectedPlaceId === place.id}
+                    onClick={() => setSelectedPlaceId(place.id)}
+                  >
+                    Open sample →
+                  </button>
                 </div>
               </div>
             </article>
           );
         })}
       </div>
+
+      {selectedPlace && selectedMemory && (
+        <section
+          className="memory-detail"
+          aria-live="polite"
+          aria-label={`Illustrative memory for ${selectedPlace.name}`}
+        >
+          <div>
+            <span className="demo-data-badge">Illustrative demo · not a historical record</span>
+            <p className="memory-detail-location">
+              {selectedPlace.region} · circa {selectedMemory.approximateYear}
+            </p>
+            <h3>{selectedMemory.title}</h3>
+            <blockquote>“{selectedMemory.excerpt}”</blockquote>
+            <p>
+              Sample review state: <strong>{selectedMemory.status.replace("_", " ")}</strong> · {selectedMemory.evidenceCount} sample references.
+            </p>
+          </div>
+          <button
+            type="button"
+            className="memory-detail-close"
+            onClick={() => setSelectedPlaceId(null)}
+            aria-label="Close the illustrative memory"
+          >
+            Close
+          </button>
+        </section>
+      )}
     </div>
   );
 }

@@ -13,6 +13,7 @@ export const places: PlacePreview[] = [
     confidence: 0.97,
     accent: "green",
     tags: ["History", "Najdi architecture", "Old Riyadh"],
+    isIllustrative: true,
   },
   {
     id: "jeddah-al-balad",
@@ -26,6 +27,7 @@ export const places: PlacePreview[] = [
     confidence: 0.95,
     accent: "blue",
     tags: ["Roshan", "Red Sea", "World Heritage"],
+    isIllustrative: true,
   },
   {
     id: "alula-old-town",
@@ -39,6 +41,7 @@ export const places: PlacePreview[] = [
     confidence: 0.94,
     accent: "gold",
     tags: ["Oasis", "Mud-brick", "Pilgrimage route"],
+    isIllustrative: true,
   },
 ];
 
@@ -50,9 +53,10 @@ export const memories: MemoryPreview[] = [
     excerpt:
       "After Eid prayer, my father would take us to the square, point to the palace gates, and tell us how much smaller Riyadh once was.",
     approximateYear: 1987,
-    contributor: "Umm Khalid",
+    contributor: "Demo contributor 01",
     status: "verified",
     evidenceCount: 3,
+    isIllustrative: true,
   },
   {
     id: "memory-2",
@@ -61,9 +65,10 @@ export const memories: MemoryPreview[] = [
     excerpt:
       "By late afternoon the market changed its voice; vendors' calls mixed with the smell of bread and sea, and my grandmother knew every shop by its old name.",
     approximateYear: 1974,
-    contributor: "Salem Al-Harbi",
+    contributor: "Demo contributor 02",
     status: "verified",
     evidenceCount: 2,
+    isIllustrative: true,
   },
   {
     id: "memory-3",
@@ -72,8 +77,9 @@ export const memories: MemoryPreview[] = [
     excerpt:
       "My grandfather kept a small wooden key until the end of his life. He said every scratch brought back a door, a face, and a story from the old town.",
     approximateYear: 1962,
-    contributor: "Noura Al-Alawi",
+    contributor: "Demo contributor 03",
     status: "pending",
     evidenceCount: 1,
+    isIllustrative: true,
   },
 ];

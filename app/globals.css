@@ -67,6 +67,17 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .site-shell {
   min-height: 100vh;
   overflow: hidden;
@@ -146,23 +157,6 @@ a:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.brand-mark svg {
-  width: 100%;
-  height: 100%;
-  fill: var(--gold-500);
-}
-
-.brand-mark .brand-mark-line {
-  fill: none;
-  stroke: var(--green-950);
-  stroke-linecap: round;
-  stroke-width: 2.5;
-}
-
-.brand-mark .brand-mark-dot {
-  fill: var(--white);
 }
 
 .brand-copy {
@@ -1204,6 +1198,7 @@ a:focus-visible {
 }
 
 .text-action {
+  display: inline-block;
   padding: 0;
   border: 0;
   color: var(--gold-400);
@@ -1236,7 +1231,7 @@ a:focus-visible {
 
 .gallery-button {
   justify-self: start;
-  cursor: help;
+  cursor: pointer;
 }
 
 .ai-chip {
@@ -1418,6 +1413,20 @@ a:focus-visible {
   padding: 23px;
 }
 
+.demo-data-badge {
+  display: inline-flex;
+  margin-bottom: 11px;
+  padding: 5px 8px;
+  border: 1px solid rgba(214, 170, 89, 0.35);
+  border-radius: 999px;
+  color: #76551f;
+  background: rgba(214, 170, 89, 0.1);
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
 .place-location {
   display: flex;
   align-items: center;
@@ -1503,6 +1512,57 @@ a:focus-visible {
   background: transparent;
   cursor: pointer;
   font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.memory-detail {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  max-width: 860px;
+  margin: 30px auto 0;
+  padding: 28px;
+  border: 1px solid rgba(20, 35, 30, 0.12);
+  border-radius: 22px;
+  background: var(--white);
+  box-shadow: 0 20px 50px rgba(35, 48, 42, 0.09);
+}
+
+.memory-detail-location {
+  margin: 3px 0 8px;
+  color: var(--green-700);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.memory-detail h3 {
+  margin-bottom: 12px;
+  color: var(--green-950);
+  font-size: 1.35rem;
+}
+
+.memory-detail blockquote {
+  margin-bottom: 12px;
+  color: #4f5c57;
+  font-family: Georgia, Tahoma, serif;
+  line-height: 1.8;
+}
+
+.memory-detail > div > p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.memory-detail-close {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--green-700);
+  background: var(--sand-50);
+  cursor: pointer;
+  font-size: 0.7rem;
   font-weight: 800;
 }
 
@@ -1975,6 +2035,16 @@ a:focus-visible {
     min-height: auto;
   }
 
+  .memory-detail {
+    max-width: 520px;
+    flex-direction: column;
+    margin-inline: auto;
+  }
+
+  .memory-detail-close {
+    align-self: flex-start;
+  }
+
   .trust-board {
     max-width: 520px;
     margin-inline: auto;
@@ -2060,6 +2130,14 @@ a:focus-visible {
 
   .scan-view {
     height: 465px;
+  }
+
+  .result-meta {
+    flex-wrap: wrap;
+  }
+
+  .memory-detail {
+    padding: 22px;
   }
 
   .trust-board {

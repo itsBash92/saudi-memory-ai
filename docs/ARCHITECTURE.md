@@ -1,5 +1,9 @@
 # Technical Architecture
 
+## Current implementation
+
+The repository currently contains a static, interactive Next.js prototype backed by typed illustrative fixtures. It has no live authentication, upload, AI, or Supabase client. The database migration and the remaining sections define the guarded foundation and target architecture for the MVP.
+
 ## Components
 
 | Layer | Initial choice | Responsibility |
@@ -49,5 +53,7 @@ sequenceDiagram
 
 - Browsers never receive database service credentials or model-provider secrets.
 - Points and redemptions are written through audited, atomic server functions.
-- Moderator access depends on a server-side role, never a client-supplied flag.
+- Reviewer access depends on the private `profile_roles` table, never a public profile or client-supplied flag.
 - Unreviewed media remains private and is displayed through short-lived signed URLs.
+- Browser clients may insert and update only explicitly granted columns; moderation and verification fields remain function-controlled.
+- Each contributor uploads only below their own user-ID folder in the private media bucket.

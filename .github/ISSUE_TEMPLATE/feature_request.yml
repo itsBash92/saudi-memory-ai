@@ -1,7 +1,7 @@
 name: Feature request
 description: Suggest an improvement that supports the preservation of Saudi memory
 title: "[Feature]: "
-labels: ["enhancement", "needs-triage"]
+labels: ["enhancement"]
 body:
   - type: textarea
     id: problem

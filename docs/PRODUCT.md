@@ -18,10 +18,12 @@ Official information is fragmented, while personal memories remain scattered acr
 
 ## Initial product scope
 
+The list below defines the usable MVP, not the current repository state. Today, the repository demonstrates the discovery and memory-exploration experience with explicitly illustrative fixtures; authentication, persistence, real uploads, moderation, and model calls are not yet connected.
+
 ### In scope
 
 - Place discovery and search.
-- A prototype camera flow for landmark recognition.
+- A production camera flow for landmark recognition, evolved from the current simulation.
 - Place pages containing story, imagery, timeline, memories, and sources.
 - Memory submission with media, text, approximate date, and an optional reference.
 - Authentication, saved places, and favorites.

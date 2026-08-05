@@ -16,6 +16,7 @@ export interface PlacePreview {
   confidence: number;
   accent: "green" | "gold" | "blue";
   tags: string[];
+  isIllustrative: boolean;
 }
 
 export interface MemoryPreview {
@@ -27,4 +28,5 @@ export interface MemoryPreview {
   contributor: string;
   status: ContentStatus;
   evidenceCount: number;
+  isIllustrative: boolean;
 }

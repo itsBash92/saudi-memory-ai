@@ -104,7 +104,7 @@ export default function Home() {
               <div className="floating-memory">
                 <span className="avatar">K</span>
                 <div>
-                  <small>Verified memory · 1987</small>
+                  <small>Illustrative memory · 1987</small>
                   <strong>“My father used to tell us…”</strong>
                 </div>
               </div>
@@ -195,11 +195,11 @@ export default function Home() {
                 distinct from historical facts, helping us preserve memory without
                 manufacturing history.
               </p>
-              <a href="https://github.com/itsbash92/saudi-memory-ai" className="inline-link">Explore the methodology on GitHub →</a>
+              <a href="https://github.com/itsBash92/saudi-memory-ai" className="inline-link">Explore the methodology on GitHub →</a>
             </div>
             <div className="trust-board">
               <div className="confidence-ring" aria-label="Illustrative confidence score of 97 percent">
-                <div><strong>97%</strong><span>confidence score</span></div>
+                <div><strong>97%</strong><span>illustrative score</span></div>
               </div>
               <div className="trust-list">
                 {trustSignals.map(([title, text]) => (
@@ -223,7 +223,7 @@ export default function Home() {
                 Soon, you will be able to connect it to a place, add an approximate date,
                 preserve its story, and choose whether to publish under your name or anonymously.
               </p>
-              <a className="button button-gold" href="https://github.com/itsbash92/saudi-memory-ai/issues/new">
+              <a className="button button-gold" href="https://github.com/itsBash92/saudi-memory-ai/issues/new/choose">
                 Register your interest
               </a>
             </div>
@@ -247,7 +247,7 @@ export default function Home() {
           <nav aria-label="Footer links">
             <a href="#story">About</a>
             <a href="#trust">Privacy</a>
-            <a href="https://github.com/itsbash92/saudi-memory-ai">GitHub</a>
+            <a href="https://github.com/itsBash92/saudi-memory-ai">GitHub</a>
           </nav>
         </div>
         <div className="container footer-bottom">

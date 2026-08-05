@@ -4,7 +4,7 @@ An intelligent platform for preserving and exploring the memories of Saudi place
 
 Users can capture a landmark or select it on a map, discover its evidence-backed story and community memories, then contribute photos, personal accounts, approximate dates, and sources.
 
-> **Project status:** extensible prototype. The interactive web experience is implemented; production place recognition, authentication, and persistent data are defined in the roadmap.
+> **Project status:** guided, interactive prototype. Every place, memory, score, and recognition result currently shown in the interface is explicitly illustrative. Production authentication, uploads, place recognition, moderation, and persistent data remain roadmap work.
 
 ## The idea in one line
 
@@ -38,7 +38,7 @@ Users can capture a landmark or select it on a map, discover its evidence-backed
 | Engagement | Points, badges, regional challenges, and future reward redemption |
 | Platforms | Responsive web, followed by iOS and Android using the same accounts and content |
 
-## Proposed architecture
+## Target architecture
 
 ```mermaid
 flowchart TD
@@ -53,10 +53,10 @@ See [Architecture](docs/ARCHITECTURE.md) and [Data Model](docs/DATA_MODEL.md) fo
 
 ## Run locally
 
-Requirements: Node.js 22 or newer.
+Requirements: Node.js 22 or newer and npm 10 or newer.
 
 ```bash
-npm install
+npm ci
 cp .env.example .env.local
 npm run dev -- --hostname 127.0.0.1
 ```
@@ -68,6 +68,10 @@ Run all quality checks:
 ```bash
 npm run check
 ```
+
+`npm run check` runs linting, a standalone TypeScript check, repository tests, and a production build. The current prototype does not need Supabase or AI credentials to run; the placeholders in `.env.example` are reserved for later milestones.
+
+GitHub Actions also applies every migration to a fresh local Supabase database, so invalid SQL cannot pass the repository's required checks.
 
 ## Repository structure
 

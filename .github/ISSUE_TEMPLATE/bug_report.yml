@@ -1,7 +1,7 @@
 name: Bug report
 description: Help us reproduce a problem in Saudi Memory AI
 title: "[Bug]: "
-labels: ["bug", "needs-triage"]
+labels: ["bug"]
 body:
   - type: markdown
     attributes:

@@ -6,7 +6,9 @@ type ScanStage = "idle" | "scanning" | "found";
 
 export function ScanDemo() {
   const [stage, setStage] = useState<ScanStage>("idle");
+  const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
   const scanTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const fileInput = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     return () => {
@@ -22,6 +24,15 @@ export function ScanDemo() {
 
   function resetScan() {
     if (scanTimer.current) clearTimeout(scanTimer.current);
+    setStage("idle");
+  }
+
+  function chooseImage(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (scanTimer.current) clearTimeout(scanTimer.current);
+    setSelectedFileName(file.name);
     setStage("idle");
   }
 
@@ -57,7 +68,11 @@ export function ScanDemo() {
           <div className="scan-instruction">
             <span className="eyebrow light">AI camera demo</span>
             <h3>Point the camera at a landmark</h3>
-            <p>This safe prototype simulation does not access your camera.</p>
+            <p>
+              {selectedFileName
+                ? `Selected locally: ${selectedFileName}`
+                : "This safe prototype simulation does not access your camera."}
+            </p>
           </div>
         )}
 
@@ -71,12 +86,12 @@ export function ScanDemo() {
         {stage === "found" && (
           <div className="place-result" aria-live="polite">
             <div className="result-head">
-              <span className="confidence">97% confidence</span>
+              <span className="confidence">97% demo confidence</span>
               <button type="button" className="icon-button" onClick={resetScan} aria-label="Restart the demo">
                 ↻
               </button>
             </div>
-            <span className="result-kicker">Place identified</span>
+            <span className="result-kicker">Illustrative result · no live AI used</span>
             <h3>Al Masmak Palace</h3>
             <p>
               A clay and mud-brick fortress in the heart of Riyadh, closely tied to
@@ -84,20 +99,29 @@ export function ScanDemo() {
             </p>
             <div className="result-meta">
               <span>Riyadh</span>
-              <span>128 memories</span>
-              <span>3 sources</span>
+              <span>128 sample memories</span>
+              <span>3 sample sources</span>
             </div>
-            <button type="button" className="text-action">Explore the full story →</button>
+            <a className="text-action" href="#memories">Explore the sample story →</a>
           </div>
         )}
       </div>
 
       <div className="camera-controls">
+        <input
+          ref={fileInput}
+          className="visually-hidden"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          onChange={chooseImage}
+          tabIndex={-1}
+        />
         <button
           type="button"
           className="gallery-button"
-          aria-label="Choose an image — available in a future release"
-          title="Available in a future release"
+          aria-label="Choose an image for the local demo"
+          title="Choose a local image; it is not uploaded"
+          onClick={() => fileInput.current?.click()}
         >
           ▧
         </button>
