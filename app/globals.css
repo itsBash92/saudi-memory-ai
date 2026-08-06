@@ -36,6 +36,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body::after {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image: url("/brand-logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: min(78vw, 760px) auto;
+  mix-blend-mode: soft-light;
+  opacity: 0.08;
+}
+
 button,
 input,
 textarea,
@@ -144,19 +158,24 @@ a:focus-visible {
 
 .brand-mark {
   display: grid;
-  width: 41px;
-  height: 41px;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 auto;
   overflow: hidden;
   place-items: center;
+  background: #020605;
   border: 1px solid rgba(214, 170, 89, 0.42);
   border-radius: 50%;
   box-shadow: 0 0 18px rgba(106, 234, 168, 0.13);
 }
 
 .brand-image {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  border-radius: inherit;
 }
 
 .brand-copy {
@@ -1929,8 +1948,8 @@ a:focus-visible {
   }
 
   .brand-mark {
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
   }
 
   .hero {
